@@ -46,7 +46,14 @@ run_floorplan
 ```
 ![](/Images/image.png)
 
-After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which contians looks like this,
+After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which looks like this,
+
 ![](/Images/Screenshot%202021-01-23%20150009.png)
 
 The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
+
+#### Opening floorplan in MAGIC
+```
+magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+The above commmand first reads the tech file which is _sky130A.tech_(location in yoor PC may vary!), reads lef file which is _merged.lef_ and def file which is _picorv32a.floorplan.def_.
