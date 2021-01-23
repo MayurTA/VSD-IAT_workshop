@@ -4,8 +4,8 @@
 
 
 ## DAY 2 : Floorplan and introduction to Library Cells 
-### FLOORPLANNING 
-#### 1. Defining width and height of Core and Die
+## FLOORPLANNING 
+### 1. Defining width and height of Core and Die
 First step in the floorplan is to define the dimensions of core and die, which in turn contraints the  dimensions of the SoC and the IPs contained in it. We define two terms in this regard - _Utilization Factor_ and _Aspect Ratio_.
 
 __Utilization Factor__
