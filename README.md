@@ -18,3 +18,11 @@ Aspect ratio is the ratio of Height and Width of the core and tells if the core 
 In the netlist, there will be some portions which repeat many times at different locations. So, we divide the entire netlist into certain blocks so that the repeating blocks can be duplicated easily as and when required. These blocks are placed on the floor before runnning the autommated PnR, and hence the name _pre-placed cells_.Automated tools cannot re locate these pre-placed cells. 
 
 #### 3. Surronding pre-placed cells with de-coupling capacitors
+
+
+### LAB
+#### Few useful flags and commands
+- To create runs folder with custom name
+```shell
+prep -design picorv32 -tag trial_run1
+```
