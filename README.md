@@ -26,5 +26,17 @@ In the netlist, there will be some portions which repeat many times at different
 ```shell
 prep -design picorv32 -tag trial_run1
 ```
- .. This creates a new runs folder with the name _trial_run1_
-- asd
+  This creates a new runs folder with the name _trial_run1_
+- To overwrite default configurations in config.tcl
+```shell
+prep -design picorv32 -tag trial_run1 -overwrite
+```
+- To change variables in current run
+```
+set env(CLOCK_PERIOD) 15.000
+```
+  Sets the clock period to 15
+- To view variables in current run
+```
+echo $env(CLOCK_PERIOD)
+```
