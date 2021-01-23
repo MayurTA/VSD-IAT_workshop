@@ -71,3 +71,21 @@ And many tap cells can be seen all over the layout, whcih connect n-well to Vdd 
 A few standard cells can also been at the lower left corner of the layout. 
 
 ![](/Images/Screenshot%202021-01-23%20162346.png)
+
+#### Running floorplan
+The following command places all the standard cells pertaning to the netlist, on the floorplan created from the previous step. 
+```
+run_placement
+```
+All the checks should be passed as follows,
+
+![](/Images/Screenshot%202021-01-23%20192527.png)
+
+#### Opening floorplan in MAGIC
+Now run open the now created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
+```
+magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+![](/Images/Screenshot%202021-01-23%20193030.png)
+
+![](/Images/Screenshot%202021-01-23%20192939.png)
