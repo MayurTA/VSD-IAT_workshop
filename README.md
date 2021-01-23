@@ -9,8 +9,8 @@ First step in the floorplan is to define the dimensions of core and die, which i
 
 #### Utilization Factor
 Utilization factor gives represents the percentage of the core area occupied by the netlist(with cells abutting each other and excluding the wires).
-                                         __Utilization Factor = Area occupied by the netlist / Total area of the core__
+                                         Utilization Factor = Area occupied by the netlist / Total area of the core
 #### Aspect Ratio
 Aspect ratio tells if the core is rectungular or square. 
 
-                                                             __Aspect ratio = Height / Width__
+                                                                Aspect ratio = Height / Width
