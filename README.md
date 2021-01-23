@@ -47,4 +47,4 @@ run_floorplan
 ![](/Images/image.png)
 
 After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which contians looks like this,
-![](/Images/Screenshot 2021-01-23 150009.png)
+![](/Images/Screenshot%202021-01-23%20150009.png)
