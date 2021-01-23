@@ -7,6 +7,6 @@
 ### Defining width and height of Core and Die
 First step in the floorplan is to define the dimensions of core and die, which in turn contrains the  dimensions of the SoC and the IPs contained in it. We define two terms in this regard - _Utilization Factor_ and _Aspect Ratio_.
 
-![core](/Images/Screenshot%20(127).png)
-
 Consider the whole netlist that must be contained in the Core. Now, strip off the wires and arrange the cells in the remaining netlist such that they abut each other. Utilization factor is defined with respcet to this modified netlist.
+
+`Utilization Factor = Area occupied by the netlist / Total area of the core`
