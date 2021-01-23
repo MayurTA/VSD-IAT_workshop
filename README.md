@@ -48,3 +48,5 @@ run_floorplan
 
 After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which contians looks like this,
 ![](/Images/Screenshot%202021-01-23%20150009.png)
+
+The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
