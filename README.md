@@ -44,4 +44,4 @@ echo $env(CLOCK_PERIOD)
 ```
 run_floorplan
 ```
-[](/Images/image.png)
+![](/Images/image.png)
