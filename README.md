@@ -3,10 +3,9 @@
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
 
 
-## DAY 2 : Floorplan and introduction to Library Cells
-### Theory 2.1
-#### FLOORPLANNING 
-##### Defining width and height of Core and Die
+## DAY 2 : Floorplan and introduction to Library Cells 
+### FLOORPLANNING 
+#### Defining width and height of Core and Die
 First step in the floorplan is to define the dimensions of core and die, which in turn contraints the  dimensions of the SoC and the IPs contained in it. We define two terms in this regard - _Utilization Factor_ and _Aspect Ratio_.
 
 __Utilization Factor__
