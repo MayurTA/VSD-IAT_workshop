@@ -1,2 +1,6 @@
-# VSD-IAT_workshop
-Report of what was covered in the 5 day workshop by VSD regarding the open-source EDA tools in the VLSI industry
+# VSD-IAT Workshop on Advanced Physical Design using OPENLANE/SKY130
+
+## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
+
+
+## DAY 2 : Floorplan and introduction to Library Cells
