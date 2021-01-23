@@ -40,3 +40,8 @@ set env(CLOCK_PERIOD) 15.000
 ```
 echo $env(CLOCK_PERIOD)
 ```
+#### Running floorplan
+```
+run_floorplan
+```
+[](/Images/image.png)
