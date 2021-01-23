@@ -26,5 +26,5 @@ In the netlist, there will be some portions which repeat many times at different
 ```shell
 prep -design picorv32 -tag trial_run1
 ```
-  This creates a new runs folder with the name _trial_run1_
+    This creates a new runs folder with the name _trial_run1_
 - asd
