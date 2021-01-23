@@ -56,4 +56,18 @@ The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
-The above commmand first reads the tech file which is _sky130A.tech_(location in yoor PC may vary!), reads lef file which is _merged.lef_ and def file which is _picorv32a.floorplan.def_.
+The above commmand first reads the tech file which is _sky130A.tech_, reads lef file which is _merged.lef_ and def file which is _picorv32a.floorplan.def_.
+
+![](/Images/Screenshot 2021-01-23 161903.png)
+
+In the layout, many i/o pins can be seen at the border of the layout, which are equidistant from each other by default(which can be changed in the _/home/mayurta/Desktop/work/tools/openlane_working_dir/openLANE_flow/configuration/README.md_ file). 
+
+![](/Images/Screenshot 2021-01-23 162058.png)
+
+And many tap cells can be seen all over the layout, whcih connect n-well to Vdd and substrate to ground to prevent _latch-up_. These tap cells are diagonllay equidistant from each other.
+
+![](/Images/Screenshot 2021-01-23 162218.png)
+
+A few standard cells can also been at the lower left corner of the layout. 
+
+![](/Images/Screenshot 2021-01-23 162346.png)
