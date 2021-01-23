@@ -86,6 +86,8 @@ Now run open the now created _piorv32a.placement.def_ in magic using the command
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
+![](/Images/Screenshot%202021-01-23%20192939.png)
+
 ![](/Images/Screenshot%202021-01-23%20193030.png)
 
-![](/Images/Screenshot%202021-01-23%20192939.png)
+
