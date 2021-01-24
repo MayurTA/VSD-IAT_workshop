@@ -113,3 +113,14 @@ magic -T sky130.tech sky130_inv.mag
 ```
 
 ![](/D3_images/Screenshot2021-01-24124655.png)
+
+To simulate the inverter, we need a _.sim_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.sim_ file in the same directory.
+
+![](/D3_images/Screenshot2021-01-24171831.png)
+
+Then we convert the _.ext_ into _.sim_ including all the parasitics.
+
+![](/D3_images/Screenshot2021-01-24172043.png)
+
+![](/D3_images/Screenshot2021-01-24172213.png)
+
