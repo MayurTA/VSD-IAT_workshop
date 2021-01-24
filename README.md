@@ -141,3 +141,4 @@ plot y vs time a
 This plots output(node y) vs time and also the input(node a)..
 
 ![](/D3_images/Screenshot2021-01-24_194923.png)
+Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
