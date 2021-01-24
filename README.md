@@ -114,13 +114,29 @@ magic -T sky130.tech sky130_inv.mag
 
 ![](/D3_images/Screenshot2021-01-24124655.png)
 
-To simulate the inverter, we need a _.sim_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.sim_ file in the same directory.
+To simulate the inverter, we need a _.spice_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.spice_ file in the same directory.
 
 ![](/D3_images/Screenshot2021-01-24171831.png)
 
-Then we convert the _.ext_ into _.sim_ including all the parasitics.
+Then we convert the _.ext_ into _.spice_ including all the parasitics.
 
 ![](/D3_images/Screenshot2021-01-24172043.png)
 
 ![](/D3_images/Screenshot2021-01-24172213.png)
+Then we edit the _.spice_ file to include model files, define power supply nodes and analysis type.
 
+![](/D3_images/Screenshot2021-01-24194614.png)
+
+Next, we run the simlulation by typing, 
+```
+ngspice sky130_inv.spice
+```
+![](/D3_images/Screenshot2021-01-24194710.png)
+
+To plot the simulation results, 
+```
+plot y vs time a
+```
+This plots output(node y) vs time and also the input(node a).
+
+![](/D3_images/Screenshot2021-01-24_194923.png)
