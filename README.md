@@ -62,15 +62,15 @@ The above commmand first reads the tech file which is _sky130A.tech_, reads lef 
 
 In the layout, many i/o pins can be seen at the border of the layout, which are equidistant from each other by default(which can be changed in the _/home/mayurta/Desktop/work/tools/openlane_working_dir/openLANE_flow/configuration/README.md_ file). 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162058.png" height="40%" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162058.png" width="40%">
 
 And many tap cells can be seen all over the layout, whcih connect n-well to Vdd and substrate to ground to prevent _latch-up_. These tap cells are diagonllay equidistant from each other.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162218.png" height="40%" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162218.png" width="40%">
 
 A few standard cells can also been at the lower left corner of the layout. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png" height="40%" width = 60%>
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png"  width = "40%">
 
 #### Running floorplan
 The following command places all the standard cells pertaning to the netlist, on the floorplan created from the previous step. 
