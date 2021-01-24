@@ -123,6 +123,7 @@ Then we convert the _.ext_ into _.spice_ including all the parasitics.
 ![](/D3_images/Screenshot2021-01-24172043.png)
 
 ![](/D3_images/Screenshot2021-01-24172213.png)
+
 Then we edit the _.spice_ file to include model files, define power supply nodes and analysis type.
 
 ![](/D3_images/Screenshot2021-01-24194614.png)
