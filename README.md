@@ -90,4 +90,26 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ![](/Images/Screenshot%202021-01-23%20193030.png)
 
+## DAY 3 : Designing library cell using MAGIC layout and ngspice charactereization
 
+### LAB
+OBJECTIVE : To perform simulatation and characterization of an inverter and plug it into the _picorv32_.
+
+Instead of designing the invereter from scratch, we git clone the folder contatning a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
+```
+git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+```
+This command creates a new folder named _vsdstdcelldesign_ inside our _openLANE_flow_ folder.
+![](/D3_images/Screenshot2021-01-24123134.png)
+
+Now, we copy the tech file into the _vsdstdcelldesign_ directory and open the inverter design with magic. For copying, go to the directory where tech file is present i.e pdks/sky130/libs.tech/magic and use the command `cp sky130A.tech ABSOLUTE_PATH_TO_VSDSTDCELLDESIGN` as follows, 
+
+![](/D3_images/Screenshot2021-01-24123728.png)
+
+Now, we can open the inverter in magic by typing,
+
+```
+magic -T sky130.tech sky130_inv.mag
+```
+
+![](/D3_images/Screenshot2021-01-241234655.png)
