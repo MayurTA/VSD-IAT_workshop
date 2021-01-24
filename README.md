@@ -95,7 +95,7 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ### LAB
 OBJECTIVE : To perform simulatation and characterization of an inverter and plug it into the _picorv32_.
 
-Instead of designing the invereter from scratch, we git clone the folder contatning a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
+Instead of designing the inverter from scratch, we git clone the folder containing a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
 ```
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 ```
@@ -112,4 +112,4 @@ Now, we can open the inverter in magic by typing,
 magic -T sky130.tech sky130_inv.mag
 ```
 
-![](/D3_images/Screenshot2021-01-241234655.png)
+![](/D3_images/Screenshot2021-01-24124655.png)
