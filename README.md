@@ -44,11 +44,11 @@ echo $env(CLOCK_PERIOD)
 ```
 run_floorplan
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/image.png" width="65%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/image.png" width="60%">
 
 After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which looks like this,
 
-![](/Images/Screenshot%202021-01-23%20150009.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20150009.png" width="60%">
 
 The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
 
