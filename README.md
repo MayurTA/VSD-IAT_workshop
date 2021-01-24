@@ -44,7 +44,7 @@ echo $env(CLOCK_PERIOD)
 ```
 run_floorplan
 ```
-![](/Images/image.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/image.png" width="250" height="200">
 
 After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which looks like this,
 
