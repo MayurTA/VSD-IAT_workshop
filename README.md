@@ -137,6 +137,6 @@ To plot the simulation results,
 ```
 plot y vs time a
 ```
-This plots output(node y) vs time and also the input(node a).
+This plots output(node y) vs time and also the input(node a)..
 
 ![](/D3_images/Screenshot2021-01-24_194923.png)
