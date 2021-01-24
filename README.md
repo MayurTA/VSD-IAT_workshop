@@ -70,7 +70,7 @@ And many tap cells can be seen all over the layout, whcih connect n-well to Vdd 
 
 A few standard cells can also been at the lower left corner of the layout. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png" height="50%">
 
 #### Running floorplan
 The following command places all the standard cells pertaning to the netlist, on the floorplan created from the previous step. 
