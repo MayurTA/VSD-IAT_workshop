@@ -94,7 +94,7 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ### LAB
 OBJECTIVE : To perform simulatation and characterization of an inverter and plug it into the _picorv32_.
-
+#### Setting up the inverter files
 Instead of designing the inverter from scratch, we git clone the folder containing a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
 ```
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
@@ -106,6 +106,7 @@ Now, we copy the tech file into the _vsdstdcelldesign_ directory and open the in
 
 ![](/D3_images/Screenshot2021-01-24123728.png)
 
+#### Opening the inverter in MAGIC
 Now, we can open the inverter in magic by typing,
 
 ```
@@ -128,6 +129,7 @@ Then we edit the _.spice_ file to include model files, define power supply nodes
 
 ![](/D3_images/Screenshot2021-01-24194614.png)
 
+#### Runing the simulations in Ngspice
 Next, we run the simlulation by typing, 
 ```
 ngspice sky130_inv.spice
@@ -142,3 +144,5 @@ This plots output(node y) vs time and also the input(node a)..
 
 ![](/D3_images/Screenshot2021-01-24_194923.png)
 Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
+
+## DAY 4 : Pre-layout timing analysis and importance of good clock tree
