@@ -205,12 +205,12 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
 
  There is huge timing violations. Here _wns_ is _worst negative slack_ and _tns_ is _total negative slack_.  So, now we should some changes and make our flow more timing driven.
  We check for three variables(variables in README.md file present inside openLANE_flow/configuration directory):
- SYNTH_STRATEGY - We try to strike a balance between area and delay by using an appropriate strategy. The default strategy tunrs out to be 2 which is more area driven. So, we set the strategy to 1, which is more delay oriented. This might result in a bit increased area, but delay will be reduced 
- SYNTH_BUFFERING - This adds buffers to high fan_out lines. It would be better if it is ON
- SYNTH_SIZING - This varies the size of the cells in the flow. This also is betterr to be ON
+ - SYNTH_STRATEGY - We try to strike a balance between area and delay by using an appropriate strategy. The default strategy tunrs out to be 2 which is more area driven. So, we set the strategy to 1, which is more delay oriented. This might result in a bit increased area, but delay will be reduced 
+ - SYNTH_BUFFERING - This adds buffers to high fan_out lines. It would be better if it is ON
+ - SYNTH_SIZING - This varies the size of the cells in the flow. This also is betterr to be ON
  ```
  set ::env(SYNTH_STRATEGY) 1
- set ::env(SYNNTH_SIZING) 1
+ set ::env(SYNTH_SIZING) 1
  ```
  Running synthesis again, we find that the area has increased and timing has improved. 
  
