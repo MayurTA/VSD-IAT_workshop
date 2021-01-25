@@ -44,11 +44,11 @@ echo $env(CLOCK_PERIOD)
 ```
 run_floorplan
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/image.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/image.png" width="75%">
 
 After running the above command, a new file named _piorv32a.floorplan.def_ will be created in the directory _runs/trial_run1/results/floorplan/_ which looks like this,
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20150009.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20150009.png" width="75%">
 
 The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
 
@@ -58,7 +58,7 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ```
 The above commmand first reads the tech file which is _sky130A.tech_, reads lef file which is _merged.lef_ and def file which is _picorv32a.floorplan.def_.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20161903.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20161903.png" width="75%">
 
 In the layout, many i/o pins can be seen at the border of the layout, which are equidistant from each other by default(which can be changed in the _/home/mayurta/Desktop/work/tools/openlane_working_dir/openLANE_flow/configuration/README.md_ file). 
 
@@ -156,7 +156,7 @@ For routing, certain guidelines are to be strictly followed. Two of such guideli
 #### Verifying the gudidelines and coverting to lef file
 Tracks are like lines used by the PnR to place the metal wires for routing. The track information can be found in the file _tracks.info_ inside the directory _pdks/sky130A/libs.tech/openlane/sky130A_fd_sc_hd_. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  height = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  height = "50%">
 
 Each line contains a X(horizontal) or Y(vertical) track info with the first number representing track offset and the second number is track pitch.
 
@@ -164,7 +164,7 @@ To check whether the first guideline is followed by our inverter, we identify th
 ```
 grid 0.46um 0.34um 0.23um 0.17um
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_112119.png"  width = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_112119.png"  width = "50%">
 We see that the ports do lie intersection of tracks. Next the second guideline is also verfified by counting the number of boxes covered the inverter along length and breadth. 
 
 Next we rename the inverter _mag_ file(not necessary) and extract the _lef_ file by typing the command in _tkcon_ window,
@@ -179,17 +179,15 @@ This creates a new file the same directory.
 
 For plugging the inverter into picorv32, wee first copy the inverter _lef_ file into the _src_ directory inside picorcv32.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "70%">
 
 We aslo require the tool to map inverter cell design and picorv32. So also copy the library files into src. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "70%">
 
 For Openlane to recognise our inverter inside picorv32, we add the following lines in to the _config.tcl_ file which is inside pirorv32 directory,
  ```
  set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
- set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
- add_lefs -src $lefs 
  ```
  Next we open the Openlane flow, require packages and prep the design. Then we run the following commands in Openlane window
  
@@ -199,6 +197,6 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  Then we run the synthesis.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "60%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "70%">
 
  
