@@ -218,7 +218,7 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  
  Even though timing violation still exists, our main goal was to plug the inverter into picorv32 and the synthesis with plug-in has run successfully. We check if the inverter did get added into picorv32 by checking the _merged.lef_ in runs/finalrun/tmp.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "70%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "60%">
  
  Yes! Inverter is found in the picorv32a merged.lef. So, next we run floorplan and placement. 
  
