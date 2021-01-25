@@ -189,7 +189,11 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
  ```
- Next we open the Openlane flow, require packages and prep the design. Then we run the following commands in Openlane window
+ We also add these other lines inside the same _config.tcl_ for openlane to recognise the timing information of our inverter,
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_174238.png "  width = "70%">
+
+ Next we open the Openlane flow, require packages and prep the design. Then we run the following commands in Openlane window so that _lef_ file of our inverter gets addeed to merged lef file. 
  
  ```
  set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
@@ -197,6 +201,26 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  Then we run the synthesis.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "70%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_180803.png "  width = "70%">
 
+ There is huge timing violations. Here _wns_ is _worst negative slack_ and _tns_ is _total negative slack_.  So, now we should some changes and make our flow more timing driven.
+ We check for three variables(variables in README.md file present inside openLANE_flow/configuration directory):
+ SYNTH_STRATEGY - We try to strike a balance between area and delay by using an appropriate strategy. The default strategy tunrs out to be 2 which is more area driven. So, we set the strategy to 1, which is more delay oriented. This might result in a bit increased area, but delay will be reduced 
+ SYNTH_BUFFERING - This adds buffers to high fan_out lines. It would be better if it is ON
+ SYNTH_SIZING - This varies the size of the cells in the flow. This also is betterr to be ON
+ ```
+ set ::env(SYNTH_STRATEGY) 1
+ set ::env(SYNNTH_SIZING) 1
+ ```
+ Running synthesis again, we find that the area has increased and timing has improved. 
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_190750.png"  width = "70%">
+ 
+ Even though timing violation still exists, our main goal was to plug the inverter into picorv32 and the synthesis with plug-in has run successfully. We check if the inverter did get added into picorv32 by checking the _merged.lef_ in runs/finalrun/tmp.
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "70%">
+ 
+ Yes! Inverter is found in the picorv32a merged.lef. So, next we run floorplan and placement. 
+ 
+ 
  
