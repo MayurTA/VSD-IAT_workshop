@@ -58,7 +58,7 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ```
 The above commmand first reads the tech file which is _sky130A.tech_, reads lef file which is _merged.lef_ and def file which is _picorv32a.floorplan.def_.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20161903.png" width="75%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20161903.png" width="60%">
 
 In the layout, many i/o pins can be seen at the border of the layout, which are equidistant from each other by default(which can be changed in the _/home/mayurta/Desktop/work/tools/openlane_working_dir/openLANE_flow/configuration/README.md_ file). 
 
@@ -214,11 +214,11 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  Running synthesis again, we find that the area has increased and timing has improved. 
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_190750.png"  width = "70%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_190750.png"  width = "60%">
  
  Even though timing violation still exists, our main goal was to plug the inverter into picorv32 and the synthesis with plug-in has run successfully. We check if the inverter did get added into picorv32 by checking the _merged.lef_ in runs/finalrun/tmp.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "60%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "50%">
  
  Yes! Inverter is found in the picorv32a merged.lef. So, next we run floorplan and placement. 
  
