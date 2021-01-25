@@ -82,7 +82,7 @@ All the checks should be passed as follows,
 ![](/Images/Screenshot%202021-01-23%20192527.png)
 
 #### Opening floorplan in MAGIC
-Now run open the now created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
+Now open the just created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
@@ -146,3 +146,59 @@ This plots output(node y) vs time and also the input(node a)..
 Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
 
 ## DAY 4 : Pre-layout timing analysis and importance of good clock tree
+### LAB
+MAGIC contains all the detailed information about a cell. For PnR, such detailed information is not necessary. So, we use a different file format __LEF__ for placement and routing stage. LEF( Library Exchange Format) contains only the abstract information about the cell and hence is also used for protecting the IPs. So, before plugging our Inverter into the layout of _picorv32_, we need to convert the _.mag_ file of inverter into _.lef_. 
+
+For routing, certain guidelines are to be strictly followed. Two of such guidelines relevant in our case are,
+1) The input and output ports must lie on the intersection of horizontal and vertical tracks
+2) Width of the standard cell must be odd multiples of track pitch and height must be odd multiples of vertical track pitch
+
+#### Verifying the gudidelines and coverting to lef file
+Tracks are like lines used by the PnR to place the metal wires for routing. The track information can be found in the file _tracks.info_ inside the directory _pdks/sky130A/libs.tech/openlane/sky130A_fd_sc_hd_. 
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  width = "40%">
+
+Each line contains a X(horizontal) or Y(vertical) track info with the first number representing track offset and the second number is track pitch.
+
+To check whether the first guideline is followed by our inverter, we identify the input and output ports and check if they lie on the intersection of tracks of the corresponding metal by aligning the grids in MAGIC layout to that of the tracks using the `grid` command in _tkcon window_. In our case, the porst lie on _licon_ metal, so we align the grid corresponding to those values,
+```
+grid 0.46um 0.34um 0.23um 0.17um
+```
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_112119.png"  width = "40%">
+We see that the ports do lie intersection of tracks. Next the second guideline is also verfified by counting the number of boxes covered the inverter along length and breadth. 
+
+Next we rename the inverter _mag_ file(not necessary) and extract the _lef_ file by typing the command in _tkcon_ window,
+```
+lef write
+```
+This creates a new file the same directory.
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120208.png"  width = "40%">
+
+#### Plugging the inverter lef file into picorv32a
+
+For plugging the inverter into picorv32, wee first copy the inverter _lef_ file into the _src_ directory inside picorcv32.
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "40%">
+
+We aslo require the tool to map inverter cell design and picorv32. So also copy the library files into src. 
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "40%">
+
+For Openlane to recognise our inverter inside picorv32, we add the following lines in to the _config.tcl_ file which is inside pirorv32 directory,
+ ```
+ set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+ add_lefs -src $lefs 
+ ```
+ Next we open the Openlane flow, require packages and prep the design. Then we run the following commands in Openlane window
+ 
+ ```
+ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+ add_lefs -src $lefs 
+ ```
+ Then we run the synthesis.
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "40%">
+
+ 
