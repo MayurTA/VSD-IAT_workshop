@@ -156,7 +156,7 @@ For routing, certain guidelines are to be strictly followed. Two of such guideli
 #### Verifying the gudidelines and coverting to lef file
 Tracks are like lines used by the PnR to place the metal wires for routing. The track information can be found in the file _tracks.info_ inside the directory _pdks/sky130A/libs.tech/openlane/sky130A_fd_sc_hd_. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  width = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  height = "40%">
 
 Each line contains a X(horizontal) or Y(vertical) track info with the first number representing track offset and the second number is track pitch.
 
@@ -173,17 +173,17 @@ lef write
 ```
 This creates a new file the same directory.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120208.png"  width = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120208.png"  width = "50%">
 
 #### Plugging the inverter lef file into picorv32a
 
 For plugging the inverter into picorv32, wee first copy the inverter _lef_ file into the _src_ directory inside picorcv32.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "50%">
 
 We aslo require the tool to map inverter cell design and picorv32. So also copy the library files into src. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "50%">
 
 For Openlane to recognise our inverter inside picorv32, we add the following lines in to the _config.tcl_ file which is inside pirorv32 directory,
  ```
@@ -199,6 +199,6 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  Then we run the synthesis.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "40%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "50%">
 
  
