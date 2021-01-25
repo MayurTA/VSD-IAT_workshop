@@ -179,11 +179,11 @@ This creates a new file the same directory.
 
 For plugging the inverter into picorv32, wee first copy the inverter _lef_ file into the _src_ directory inside picorcv32.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "50%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120435.png"  width = "60%">
 
 We aslo require the tool to map inverter cell design and picorv32. So also copy the library files into src. 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "50%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_121410.png"  width = "60%">
 
 For Openlane to recognise our inverter inside picorv32, we add the following lines in to the _config.tcl_ file which is inside pirorv32 directory,
  ```
@@ -199,6 +199,6 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  ```
  Then we run the synthesis.
  
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "50%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_130713.png"  width = "60%">
 
  
