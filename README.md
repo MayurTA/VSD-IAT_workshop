@@ -216,11 +216,37 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_190750.png"  width = "60%">
  
- Even though timing violation still exists, our main goal was to plug the inverter into picorv32 and the synthesis with plug-in has run successfully. We check if the inverter did get added into picorv32 by checking the _merged.lef_ in runs/finalrun/tmp.
+ We once confirm if the inverter did get added into picorv32 by checking the _merged.lef_ in runs/finalrun/tmp.
  
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_191747.png"  width = "50%">
  
- Yes! Inverter is found in the picorv32a merged.lef. So, next we run floorplan and placement. 
+ Yes! Inverter is found in the picorv32a _merged.lef_. So, next we run floorplan and placement. 
  
  
+ #### Timing analysis in OpenSTA
+ Next we try to improve the timing still more by using OpenSTA. Before that we need to set it up first. We need two files with format _.sdc_ and _.conf_, in our case, _my_base.sdc_ and _sta.conf_. These files were already available with us in the _exatras_ directory of the cloned _vsdstdcelldesign_ folder. We copy the _.sdc_ file into _src_ directory of _picorv32a_. Then we modify the contents in _.conf_ as follows, specifying the paths to respective _.lib_ files and _.sdc_ file. 
+ 
+  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105216.png"  width = "60%">
+ 
+ And we copy the _.conf_ file into _openLANE_flow_ directory. There we open terminal and type `sta sta.conf`. This opens and runs our timing files in OpenSTA. The results are as follows, 
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_221613.png"  width = "60%">
+ 
+ By scrolling up, we can see that fanout of the nets are more. We now go back to the openlane window and set `SYNTH_MAX_FANOUT` to 4 and run OpenSTA again. 
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_223554.png"  width = "60%">
+ 
+ The timing sure has improved. But it is better to get it below -1. Next optimization we perform is, we scroll up and look for nets with _version1_ buffers, having more capacitance and driving more fanouts. We upsize such buffers by replacing them with _version4_ buffers. Here is one such buffer,
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105809.png"  width = "60%">
+ 
+ We run the following commands to get more information it and replace and run the analysis again,
+ 
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_110543.png"  width = "60%">
+ 
+ Timing has improved again as expected. 
+ 
+  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_110855.png"  width = "60%">
+  
+  
  
