@@ -7,7 +7,7 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
 
  ### Few common VLSI terrms
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214454.png" width="60%">
- The image shown is of a typical chip.
+ The image shown is of a typical chip
 - The brown border is called __DIE__. It is like the container of the chip.
 - The blue are is __PADS__. It contains _pins_ which the chip uses to communicate with the external world. 
 - The central black region is the __CORE__. Core is the main part of the chip. It contains different functional blocks that handle all the processes the chip is designed to perform. 
