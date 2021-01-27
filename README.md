@@ -113,15 +113,15 @@ Now, we can open the inverter in magic by typing,
 magic -T sky130.tech sky130_inv.mag
 ```
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24124655.png" width="40%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24124655.png" height="50%">
 
 To simulate the inverter, we need a _.spice_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.spice_ file in the same directory.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24171831.png" width="50%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24171831.png" width="40%">
 
 Then we convert the _.ext_ into _.spice_ including all the parasitics.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24172043.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24172043.png" width="40%">
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24172213.png" width="60%">
 
