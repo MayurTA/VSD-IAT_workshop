@@ -223,7 +223,7 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  Yes! Inverter is found in the picorv32a _merged.lef_. So, next we run floorplan and placement. 
  
  
- #### Timing analysis in OpenSTA
+ #### __Timing analysis in OpenSTA__
  Next we try to improve the timing still more by using OpenSTA. Before that we need to set it up first. We need two files with format _.sdc_ and _.conf_, in our case, _my_base.sdc_ and _sta.conf_. These files were already available with us in the _exatras_ directory of the cloned _vsdstdcelldesign_ folder. We copy the _.sdc_ file into _src_ directory of _picorv32a_. Then we modify the contents in _.conf_ as follows, specifying the paths to respective _.lib_ files and _.sdc_ file. 
  
   <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105216.png"  width = "70%">
