@@ -79,16 +79,16 @@ run_placement
 ```
 All the checks should be passed as follows,
 
-![](/Images/Screenshot%202021-01-23%20192527.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20192527.png" width="60%">
 
 #### Opening floorplan in MAGIC
 Now open the just created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
-![](/Images/Screenshot%202021-01-23%20192939.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20192939.png" width="60%">
 
-![](/Images/Screenshot%202021-01-23%20193030.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20193030.png" width="60%">
 
 ## DAY 3 : Designing library cell using MAGIC layout and ngspice charactereization
 
@@ -100,11 +100,11 @@ Instead of designing the inverter from scratch, we git clone the folder containi
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 ```
 This command creates a new folder named _vsdstdcelldesign_ inside our _openLANE_flow_ folder.
-![](/D3_images/Screenshot2021-01-24123134.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24123134.png" width="60%">
 
 Now, we copy the tech file into the _vsdstdcelldesign_ directory and open the inverter design with magic. For copying, go to the directory where tech file is present i.e pdks/sky130/libs.tech/magic and use the command `cp sky130A.tech ABSOLUTE_PATH_TO_VSDSTDCELLDESIGN` as follows, 
 
-![](/D3_images/Screenshot2021-01-24123728.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24123728.png" width="60%">
 
 #### Opening the inverter in MAGIC
 Now, we can open the inverter in magic by typing,
@@ -113,28 +113,28 @@ Now, we can open the inverter in magic by typing,
 magic -T sky130.tech sky130_inv.mag
 ```
 
-![](/D3_images/Screenshot2021-01-24124655.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24124655.png" width="60%">
 
 To simulate the inverter, we need a _.spice_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.spice_ file in the same directory.
 
-![](/D3_images/Screenshot2021-01-24171831.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24171831.png" width="60%">
 
 Then we convert the _.ext_ into _.spice_ including all the parasitics.
 
-![](/D3_images/Screenshot2021-01-24172043.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24172043.png" width="60%">
 
-![](/D3_images/Screenshot2021-01-24172213.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24172213.png" width="60%">
 
 Then we edit the _.spice_ file to include model files, define power supply nodes and analysis type.
 
-![](/D3_images/Screenshot2021-01-24194614.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24194614.png" width="60%">
 
 #### Runing the simulations in Ngspice
 Next, we run the simlulation by typing, 
 ```
 ngspice sky130_inv.spice
 ```
-![](/D3_images/Screenshot2021-01-24194710.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24194710.png" width="60%">
 
 To plot the simulation results, 
 ```
@@ -142,7 +142,7 @@ plot y vs time a
 ```
 This plots output(node y) vs time and also the input(node a)..
 
-![](/D3_images/Screenshot2021-01-24_194923.png)
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24_194923.png" width="60%">
 Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
 
 ## DAY 4 : Pre-layout timing analysis and importance of good clock tree
@@ -226,7 +226,7 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  #### Timing analysis in OpenSTA
  Next we try to improve the timing still more by using OpenSTA. Before that we need to set it up first. We need two files with format _.sdc_ and _.conf_, in our case, _my_base.sdc_ and _sta.conf_. These files were already available with us in the _exatras_ directory of the cloned _vsdstdcelldesign_ folder. We copy the _.sdc_ file into _src_ directory of _picorv32a_. Then we modify the contents in _.conf_ as follows, specifying the paths to respective _.lib_ files and _.sdc_ file. 
  
-  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105216.png"  width = "60%">
+  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105216.png"  width = "70%">
  
  And we copy the _.conf_ file into _openLANE_flow_ directory. There we open terminal and type `sta sta.conf`. This opens and runs our timing files in OpenSTA. The results are as follows, 
  
