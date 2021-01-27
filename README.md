@@ -1,12 +1,12 @@
 # VSD-IAT Workshop on Advanced Physical Design using OPENLANE/SKY130
 
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214454.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
 
 Consider an Arduino board. The design of such microcontroller is dealt in Embedded Systems desings. There is an imortant block in this microcontroller, which is the microprocessor. The design of such microprocessors or other chips is done in the VLSI industry. It involves desinging the chip right from the logical level known as RTL to the final file format used for manufacturing called GDSII. The flow from RTL to GDSII includes many steps. 
 
 ### Few common VLSI terrms
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214454.png" width="60%">
 The image shown is of a typical chip.
 - The brown border is called __DIE__. It is like the container of the chip.
 - The blue are is __PADS__. It contains _pins_ which the chip uses to communicate with the external world. 
