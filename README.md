@@ -21,7 +21,7 @@ In the netlist, there will be some portions which repeat many times at different
 
 
 ### LAB
-#### Few useful flags and commands
+ __Few useful flags and commands__
 - To create runs folder with custom name
 ```shell
 prep -design picorv32 -tag trial_run1
@@ -40,7 +40,7 @@ set env(CLOCK_PERIOD) 15.000
 ```
 echo $env(CLOCK_PERIOD)
 ```
-#### Running floorplan
+ __Running floorplan__
 ```
 run_floorplan
 ```
@@ -52,7 +52,7 @@ After running the above command, a new file named _piorv32a.floorplan.def_ will 
 
 The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
 
-#### Opening floorplan in MAGIC
+ __Opening floorplan in MAGIC__
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
@@ -72,7 +72,7 @@ A few standard cells can also been at the lower left corner of the layout.
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png"  width = "40%">
 
-#### Running floorplan
+ __Running floorplan__
 The following command places all the standard cells pertaning to the netlist, on the floorplan created from the previous step. 
 ```
 run_placement
@@ -81,7 +81,7 @@ All the checks should be passed as follows,
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20192527.png" width="60%">
 
-#### Opening floorplan in MAGIC
+ __Opening floorplan in MAGIC__
 Now open the just created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
@@ -94,7 +94,7 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ### LAB
 OBJECTIVE : To perform simulatation and characterization of an inverter and plug it into the _picorv32_.
-#### Setting up the inverter files
+ __Setting up the inverter files__
 Instead of designing the inverter from scratch, we git clone the folder containing a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
 ```
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
@@ -106,7 +106,7 @@ Now, we copy the tech file into the _vsdstdcelldesign_ directory and open the in
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24123728.png" width="60%">
 
-#### Opening the inverter in MAGIC
+ __Opening the inverter in MAGIC__
 Now, we can open the inverter in magic by typing,
 
 ```
@@ -129,7 +129,7 @@ Then we edit the _.spice_ file to include model files, define power supply nodes
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24194614.png" width="60%">
 
-#### Runing the simulations in Ngspice
+ __Runing the simulations in Ngspice__
 Next, we run the simlulation by typing, 
 ```
 ngspice sky130_inv.spice
@@ -153,7 +153,7 @@ For routing, certain guidelines are to be strictly followed. Two of such guideli
 1) The input and output ports must lie on the intersection of horizontal and vertical tracks
 2) Width of the standard cell must be odd multiples of track pitch and height must be odd multiples of vertical track pitch
 
-#### Verifying the gudidelines and coverting to lef file
+ __Verifying the gudidelines and coverting to lef file__
 Tracks are like lines used by the PnR to place the metal wires for routing. The track information can be found in the file _tracks.info_ inside the directory _pdks/sky130A/libs.tech/openlane/sky130A_fd_sc_hd_. 
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_103955.png"  height = "50%">
@@ -175,7 +175,7 @@ This creates a new file the same directory.
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-25_120208.png"  width = "50%">
 
-#### Plugging the inverter lef file into picorv32a
+ __Plugging the inverter lef file into picorv32a__
 
 For plugging the inverter into picorv32, wee first copy the inverter _lef_ file into the _src_ directory inside picorcv32.
 
@@ -223,7 +223,7 @@ For Openlane to recognise our inverter inside picorv32, we add the following lin
  Yes! Inverter is found in the picorv32a _merged.lef_. So, next we run floorplan and placement. 
  
  
- #### __Timing analysis in OpenSTA__
+ __Timing analysis in OpenSTA__
  Next we try to improve the timing still more by using OpenSTA. Before that we need to set it up first. We need two files with format _.sdc_ and _.conf_, in our case, _my_base.sdc_ and _sta.conf_. These files were already available with us in the _exatras_ directory of the cloned _vsdstdcelldesign_ folder. We copy the _.sdc_ file into _src_ directory of _picorv32a_. Then we modify the contents in _.conf_ as follows, specifying the paths to respective _.lib_ files and _.sdc_ file. 
  
   <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_105216.png"  width = "70%">
