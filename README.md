@@ -100,11 +100,11 @@ Instead of designing the inverter from scratch, we git clone the folder containi
 git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 ```
 This command creates a new folder named _vsdstdcelldesign_ inside our _openLANE_flow_ folder.
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24123134.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24123134.png" width="60%">
 
 Now, we copy the tech file into the _vsdstdcelldesign_ directory and open the inverter design with magic. For copying, go to the directory where tech file is present i.e pdks/sky130/libs.tech/magic and use the command `cp sky130A.tech ABSOLUTE_PATH_TO_VSDSTDCELLDESIGN` as follows, 
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24123728.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24123728.png" width="60%">
 
 #### Opening the inverter in MAGIC
 Now, we can open the inverter in magic by typing,
@@ -113,28 +113,28 @@ Now, we can open the inverter in magic by typing,
 magic -T sky130.tech sky130_inv.mag
 ```
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24124655.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24124655.png" width="60%">
 
 To simulate the inverter, we need a _.spice_ file corresponding to the _.mag_ file. We first extract the _.mag_ file, whcih creates a _.spice_ file in the same directory.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24171831.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24171831.png" width="60%">
 
 Then we convert the _.ext_ into _.spice_ including all the parasitics.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24172043.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24172043.png" width="60%">
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24172213.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24172213.png" width="60%">
 
 Then we edit the _.spice_ file to include model files, define power supply nodes and analysis type.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24194614.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24194614.png" width="60%">
 
 #### Runing the simulations in Ngspice
 Next, we run the simlulation by typing, 
 ```
 ngspice sky130_inv.spice
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24194710.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24194710.png" width="60%">
 
 To plot the simulation results, 
 ```
@@ -142,7 +142,7 @@ plot y vs time a
 ```
 This plots output(node y) vs time and also the input(node a)..
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot2021-01-24_194923.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24_194923.png" width="60%">
 Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
 
 ## DAY 4 : Pre-layout timing analysis and importance of good clock tree
