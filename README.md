@@ -25,9 +25,24 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
   - Macro floor planning - Dimensions of the blocks are estimated, locations of pins are decided and rows are defined
   - Power planning - Power pads and power straps locations are decided. It consists of manyn upper layer metals arranged in parallel for uniform power distribution across the entire chip
  - __PLACEMENT__ - Cells are placed on the floorplan constructed in the previous step. Two steps : 
-  - Global placement - Finding optimal positions for all cells
-  - Detailed placement - Placement obtained from global placement are further optimized
+   - Global placement - Finding optimal positions for all cells
+   - Detailed placement - Placement obtained from global placement are further optimized
  - __CLOCK TREE SYNTHESIS__ - Creation of clock distribution network to ensure that clock is delivered with minimum skew and in good shape to all the sequential elements. Usually implemented as H-tree.
+ - __ROUTING__ - Using available metal layers to interconnect the cells and blocks. 
+   - Global Routing - Routing guides are generated
+   - Detailed Routing - Uses routing guides to implement actual wiring
+ - __SIGN OFF__ - Various verifications are performed
+   - Physical verifications - Design Rule Checks (DRC) and Layout vs Schematic (LVS)
+   - Timing verifications - Static Timing Analysis (STA)
+   
+ ### About Openlane
+  Openlane is a open source flow for a true open source tape-out experience. It is a culmination of various open source EDA tools. It's main goal is to produce a clean GDSII without human intervention. Openlane is tuned for SkyWater 130nm open pdk. Openlane ASIC flow :
+ - __RTL Synthesis__ - Implemented using _Yosys_ and _abc_
+ - __Static timing analysis__ - Implpemented using _OpenSTA_
+ - __Design for Testability (DFT)__ - IMplemented using _Fault_
+ - __Physical implementation__ - Implmented using _OpenROAD_. Involves Place and Route(PnR) and Clock Tree Synthesis (CTS)
+ - __Logical Equivalence Checking (LEC)__ - Implmented using _Yosys_. To ensure functional equivalence after netlist is modified during optimizations
+ - __RC Extraction__ 
 ## DAY 2 : Floorplan and introduction to Library Cells 
 ### FLOORPLANNING 
 #### 1. Defining width and height of Core and Die
