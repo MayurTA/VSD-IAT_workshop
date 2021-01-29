@@ -43,6 +43,41 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  - __Physical implementation__ - Implmented using _OpenROAD_. Involves Place and Route(PnR) and Clock Tree Synthesis (CTS)
  - __Logical Equivalence Checking (LEC)__ - Implmented using _Yosys_. To ensure functional equivalence after netlist is modified during optimizations
  - __RC Extraction__ 
+ 
+ ### LAB 1 Getting started with OpenLane
+ Openlane comes with many built in designs. In this project, we will be exploring the flow with one such design,__picorv32a__. It is a CPU core and we will see how all the steps in RTL to GDSII flow are implemented in Openlane. And a few directory names mentioned in this project might be user specific, but most of them will be same. _openLANE_flow_ directory mentioned in this project which is named just _openlane_ typically. 
+ To start openlane, we open the shell in _openLANE_flow_(_openlane_) directory and run the command,
+ ```
+ ./flow.tcl -interactive
+ ```
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191329.png" width="60%">
+ 
+ Now we import with openlane packages specifying its version,
+```
+package require openlane 0.9
+```
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="60%">
+
+Next we specify the design that we intend to work on, which is _picorv32a_ in our case,
+```
+prep -design picorv32a
+```
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 200120.png" width="60%">
+
+This command merges two lefs and places in a new folder which is named as date and time while running the command, inside directory designs/picorv32a/runs/.
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 214754.png" width="60%">
+
+__Synthesis__
+```
+run_synthesis
+```
+This runs the synthesis where _yosys_ translates RTL into circuit using generic components and _abc_ maps the circuit to Standard Cells.
+
+Here we define a term _Flop Ratio_. Flop ratio is the ratio of total number of flip flops to total number of cells present in the design.
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="60%">
+ 
 ## DAY 2 : Floorplan and introduction to Library Cells 
 ### FLOORPLANNING 
 #### 1. Defining width and height of Core and Die
