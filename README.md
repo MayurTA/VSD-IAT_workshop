@@ -68,7 +68,7 @@ This command merges two lefs and places in a new folder which is named as date a
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 200120.png" width="60%">
 
-__Synthesis__
+#### __Synthesis__
 ```
 run_synthesis
 ```
@@ -147,14 +147,14 @@ A few standard cells can also been at the lower left corner of the layout.
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20162346.png"  width = "40%">
 
-#### __Running floorplan__
+#### __Running placement__
 The following command places all the standard cells pertaning to the netlist, on the floorplan created from the previous step. 
 ```
 run_placement
 ```
 All the checks should be passed as follows,
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20192527.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20192527.png" width="40%">
 
 #### __Opening floorplan in MAGIC__
 Now open the just created _piorv32a.placement.def_ in magic using the command similar to the one from previous step.
