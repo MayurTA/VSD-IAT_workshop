@@ -10,9 +10,9 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214454.png" width="60%">
  
  The image shown is of a typical chip
-- The outermost white border is called __DIE__. Silicon wafers are divided into Dies and each such die can be an independant chip. 
-- The blue segments just within the die border are called __PADS__. They contains _pins_ which the chip uses to communicate with the external world. 
-- The central black region is the __CORE__. Core is the main part of the chip. It contains different functional blocks that handle all the processes the chip is designed to perform. 
+- __DIE__ - The outermost white border is called __DIE__. Silicon wafers are divided into Dies and each such die can be an independant chip. 
+- __PADS__ - The blue segments just within the die border are called __PADS__. They contains _pins_ which the chip uses to communicate with the external world. 
+- __CORE__ - The central black region is the __CORE__. Core is the main part of the chip. It contains different functional blocks that handle all the processes the chip is designed to perform. 
 - __IP__ is _Intellectual Property_. It refers to the funcational blocks desinged for a specific purpose. 
 - __Foundry__ is a semiconductor fabrication plant where devices such as integrated circuits are manufactured. They provide all the necessary files required to design an IC which can be taped out in their plant.
 - __PDK__ - Process Design Kit. It is a collection of files used to model a fabrication process for the EDA tools used to design an IC. It contains process design rules, device models, standard cell libraries, I/O libraries etc.
@@ -44,25 +44,25 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  - __Logical Equivalence Checking (LEC)__ - Implmented using _Yosys_. To ensure functional equivalence after netlist is modified during optimizations
  - __RC Extraction__ 
  
- ### LAB 1 Getting started with OpenLane
- Openlane comes with many built in designs. In this project, we will be exploring the flow with one such design,__picorv32a__. It is a CPU core and we will see how all the steps in RTL to GDSII flow are implemented in Openlane. And a few directory names mentioned in this project might be user specific, but most of them will be same. _openLANE_flow_ directory mentioned in this project which is named just _openlane_ typically. 
+ ### LAB 1 : Getting started with OpenLane
+ Openlane comes with many built in designs. In this project, we will be exploring the flow with one such design,__picorv32a__. It is a CPU core and we will see how all the steps in RTL to GDSII flow are implemented in Openlane. And a few directory names mentioned in this project might be user specific, but most of them will be same. For example, _openLANE_flow_ directory mentioned in this project which is named just _openlane_ typically. 
  To start openlane, we open the shell in _openLANE_flow_(_openlane_) directory and run the command,
  ```
  ./flow.tcl -interactive
  ```
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="75%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="70%">
  
  Now we import with openlane packages specifying its version,
 ```
 package require openlane 0.9
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191329.png" width="70%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191329.png" width="75%">
 
 Next we specify the design that we intend to work on, which is _picorv32a_ in our case,
 ```
 prep -design picorv32a
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="70%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="60%">
 
 This command merges two lefs and places in a new folder which is named as date and time while running the command, inside directory designs/picorv32a/runs/.
 
@@ -76,9 +76,9 @@ This runs the synthesis where _yosys_ translates RTL into circuit using generic 
 
 Here we define a term _Flop Ratio_. Flop ratio is the ratio of total number of flip flops to total number of cells present in the design.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 214754.png" width="20%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 214754.png" width="50%">
  
-## DAY 2 : Floorplan and introduction to Library Cells 
+## DAY 2 : Floorplanning and introduction to Library Cells 
 ### FLOORPLANNING 
 #### 1. Defining width and height of Core and Die
 First step in the floorplan is to define the dimensions of core and die, which in turn contraints the  dimensions of the SoC and the IPs contained in it. We define two terms in this regard - _Utilization Factor_ and _Aspect Ratio_.
