@@ -50,23 +50,23 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  ```
  ./flow.tcl -interactive
  ```
- <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191329.png" width="60%">
+ <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="75%">
  
  Now we import with openlane packages specifying its version,
 ```
 package require openlane 0.9
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191329.png" width="70%">
 
 Next we specify the design that we intend to work on, which is _picorv32a_ in our case,
 ```
 prep -design picorv32a
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 200120.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="70%">
 
 This command merges two lefs and places in a new folder which is named as date and time while running the command, inside directory designs/picorv32a/runs/.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 214754.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 200120.png" width="60%">
 
 __Synthesis__
 ```
@@ -76,7 +76,7 @@ This runs the synthesis where _yosys_ translates RTL into circuit using generic 
 
 Here we define a term _Flop Ratio_. Flop ratio is the ratio of total number of flip flops to total number of cells present in the design.
 
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 214754.png" width="20%">
  
 ## DAY 2 : Floorplan and introduction to Library Cells 
 ### FLOORPLANNING 
