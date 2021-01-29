@@ -10,13 +10,17 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214454.png" width="60%">
  
  The image shown is of a typical chip
-- The brown border is called __DIE__. It is like the container of the chip.
-- The blue are is __PADS__. It contains _pins_ which the chip uses to communicate with the external world. 
+- The outermost white border is called __DIE__. Silicon wafers are divided into Dies and each such die can be an independant chip. 
+- The blue segments just within the die border are called __PADS__. They contains _pins_ which the chip uses to communicate with the external world. 
 - The central black region is the __CORE__. Core is the main part of the chip. It contains different functional blocks that handle all the processes the chip is designed to perform. 
 - __IP__ is _Intellectual Property_. It refers to the funcational blocks desinged for a specific purpose. 
-- __Foundry__ is the factory like place who provide all the files and data needed to design a chip and even tape it out. 
+- __Foundry__ is a semiconductor fabrication plant where devices such as integrated circuits are manufactured. They provide all the necessary files required to design an IC which can be taped out in their plant.
+- __PDK__ - Process Design Kit. It is a collection of files used to model a fabrication process for the EDA tools used to design an IC. It contains process design rules, device models, standard cell libraries, I/O libraries etc.
+- __RTL__ - Registre Transfer Level. It is a gate level netlist corresponding the logical functionality of the design. It is defined using Hardware Description Languages(HDL) auch as verilog and vHDL.
 
-
+### RTL to GDSII flow
+- __SYNTHESIS__ - Converts RTL to a circuit consisting of components from a Standard Cell Library(SCL). Standard Cell Library is a collection of cells of certain functionality like AND gate, Or gate, etc. with a fixed height and variable width( which is an integer multiple of discrete units called Site Widths). 
+- __FLOOR AND POWER PLANNING__ - 
 ## DAY 2 : Floorplan and introduction to Library Cells 
 ### FLOORPLANNING 
 #### 1. Defining width and height of Core and Die
