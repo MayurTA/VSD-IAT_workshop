@@ -19,8 +19,15 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
 - __RTL__ - Registre Transfer Level. It is a gate level netlist corresponding the logical functionality of the design. It is defined using Hardware Description Languages(HDL) auch as verilog and vHDL.
 
 ### RTL to GDSII flow
-- __SYNTHESIS__ - Converts RTL to a circuit consisting of components from a Standard Cell Library(SCL). Standard Cell Library is a collection of cells of certain functionality like AND gate, Or gate, etc. with a fixed height and variable width( which is an integer multiple of discrete units called Site Widths). 
-- __FLOOR AND POWER PLANNING__ - 
+- __SYNTHESIS__ - Conversion of RTL to a circuit consisting of components from a Standard Cell Library(SCL). Standard Cell Library is a collection of cells of certain functionality like AND gate, Or gate, etc. with a fixed height and variable width( which is an integer multiple of discrete units called Site Widths). 
+- __FLOOR AND POWER PLANNING__ - Abstract layout of the entire chip is planned. 
+  - Chip floor planning - Partition of chip die into different blocks and placement of i/o pads.
+  - Macro floor planning - Dimensions of the blocks are estimated, locations of pins are decided and rows are defined
+  - Power planning - Power pads and power straps locations are decided. It consists of manyn upper layer metals arranged in parallel for uniform power distribution across the entire chip
+ - __PLACEMENT__ - Cells are placed on the floorplan constructed in the previous step. Two steps : 
+  - Global placement - Finding optimal positions for all cells
+  - Detailed placement - Placement obtained from global placement are further optimized
+ - __CLOCK TREE SYNTHESIS__ - Creation of clock distribution network to ensure that clock is delivered with minimum skew and in good shape to all the sequential elements. Usually implemented as H-tree.
 ## DAY 2 : Floorplan and introduction to Library Cells 
 ### FLOORPLANNING 
 #### 1. Defining width and height of Core and Die
