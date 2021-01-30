@@ -360,3 +360,44 @@ set_propagated_clocks [all_clocks]
 report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ```
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D4_images/Screenshot_2021-01-26_163821.png"  width = "60%">
+
+## DAY 5 : Final steps for RTL2GDS using tritonRoute and openSTA
+
+### LAB - Introduction to routing using tritonRoute 
+#### __Routing__
+To check which stage was last executed in Openlane, we can use the following command,
+```
+echo $::env(CURRENT_DEF)
+```
+The command basically tells us which .def file was updated last time which also corresponds to the previously executed stage.
+
+Before routing, we first need to generate the power distribution network.
+```
+gen_pdn
+```
+We can check for the environment variables available for Routing for more control over the process(inside the README.md in openLANE_flow/Configuration/). One such variable is ROUTING_STRATEGY. A value between 0-3 makes the routing runtime faster but compromised optimization(around half an hour). A value of 14 results in a highly optimized routing but takes around 4-5 hours for completion. 
+```
+run_routing
+```
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D5_images/Screenshot_2021-01-26_184013.png"  width = "60%">
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D5_images/Screenshot_2021-01-26_191047.png"  width = "60%">
+
+Routing is performed in two stages:
+- Fast route - Implemented using _FastROAD_. It generates routing guides.
+- Detailed route - Implemented using _TritonRoute_. It uses the routing guides generated in fast route to find the best route and makes connections
+
+#### __SPEF extraction__
+SPEF - Standard Parasitc Exchange Format gives information about all the parasitics present in the circuit. But SPEF extractor is not yet included in Openlane. But in this lab, we have an external spef extractor. Go to directory work/tools/SPEF_EXTRACTOR and type,
+```
+python3 main.py location_of_def location_of_lef          
+```
+where location_of_def was runs/finalrun/tmp/merged.lef and location_of_lef was runs/finalrun/results/routing/picorv32a.def.
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D5_images/Screenshot_2021-01-26_192749.png"  width = "60%">
+
+After extraction, a new spef file gets created in the same directory as of def file. Now, in runs/finalrun/results/synthesis/, we find the following .v files,
+
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D5_images/Screenshot_2021-01-26_194118.png"  width = "60%">
+
+The picorv32a.synthesis_diodes.v gets created just before routing, when antenna diode insertion takes place. To perform STA again, we need to use the last file. 
