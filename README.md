@@ -3,7 +3,7 @@
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
 
-Consider an Arduino board. The design of such microcontroller is dealt in Embedded Systems desings. There is an important block in this microcontroller, which is the microprocessor. The design of such microprocessors or other chips is done in the VLSI industry. It involves desinging the chip right from the logical level known as RTL to the final file format used for manufacturing called GDSII. The flow from RTL to GDSII includes many steps. 
+Consider an Arduino board. The design of such a microcontroller is dealt in Embedded Systems desing. There is an important block in this microcontroller, which is the microprocessor. The design of such microprocessors or other such chips is done in the VLSI industry. It involves desinging the chip from an abstract logical point of view down to fabricating the chip on a real semiconductor wafer. This flow is generally known as RTL to GDSII flow. And that is what we will explore in this project. 
 
  ### Few common VLSI terms
  
@@ -11,23 +11,23 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
  
  The image shown is of a typical chip
 - __DIE__ - The outermost white border is called __DIE__. Silicon wafers are divided into Dies and each such die can be an independant chip. 
-- __PADS__ - The blue segments just within the die border are called __PADS__. They contains _pins_ which the chip uses to communicate with the external world. 
-- __CORE__ - The central black region is the __CORE__. Core is the main part of the chip. It contains different functional blocks that handle all the processes the chip is designed to perform. 
+- __PADS__ - The blue segments just within the die border are called __PADS__. They contain _pins_ which the chip uses to communicate with the external world. 
+- __CORE__ - The central black region is called the __CORE__. Core is the main part of the chip. It contains all the different functional blocks that handle all the processes the chip is designed to perform. 
 - __IP__ is _Intellectual Property_. It refers to the funcational blocks desinged for a specific purpose. 
 - __Foundry__ is a semiconductor fabrication plant where devices such as integrated circuits are manufactured. They provide all the necessary files required to design an IC which can be taped out in their plant.
 - __PDK__ - Process Design Kit. It is a collection of files used to model a fabrication process for the EDA tools used to design an IC. It contains process design rules, device models, standard cell libraries, I/O libraries etc.
-- __RTL__ - Registre Transfer Level. It is a gate level netlist corresponding the logical functionality of the design. It is defined using Hardware Description Languages(HDL) auch as verilog and vHDL.
+- __RTL__ - Registre Transfer Level. It is a gate level netlist corresponding the logical functionality of the design. It is defined using Hardware Description Languages(HDL) auch as verilog and VHDL.
 
 ### RTL to GDSII flow
-- __SYNTHESIS__ - Conversion of RTL to a circuit consisting of components from a Standard Cell Library(SCL). Standard Cell Library is a collection of cells of certain functionality like AND gate, Or gate, etc. with a fixed height and variable width( which is an integer multiple of discrete units called Site Widths). 
+- __SYNTHESIS__ - Conversion of RTL to a circuit consisting of components from a Standard Cell Library(SCL). Standard Cell Library is a collection of cells with certain functionality like AND gate, Or gate, etc. with a fixed height and variable width( which is an integer multiple of certain discrete units called Site Widths). 
 - __FLOOR AND POWER PLANNING__ - Abstract layout of the entire chip is planned. 
   - Chip floor planning - Partition of chip die into different blocks and placement of i/o pads.
   - Macro floor planning - Dimensions of the blocks are estimated, locations of pins are decided and rows are defined
-  - Power planning - Power pads and power straps locations are decided. It consists of manyn upper layer metals arranged in parallel for uniform power distribution across the entire chip
+  - Power planning - Locations of power pads and power straps are decided. It consists of many upper layer metals arranged parallely for uniform power distribution across the entire chip
  - __PLACEMENT__ - Cells are placed on the floorplan constructed in the previous step. Two steps : 
    - Global placement - Finding optimal positions for all cells
    - Detailed placement - Placement obtained from global placement are further optimized
- - __CLOCK TREE SYNTHESIS__ - Creation of clock distribution network to ensure that clock is delivered with minimum skew and in good shape to all the sequential elements. Usually implemented as H-tree.
+ - __CLOCK TREE SYNTHESIS__ - Creation of clock distribution network to ensure that clock is delivered with minimum skew and in good shape to all the sequential elements. Usually implemented as a H-tree.
  - __ROUTING__ - Using available metal layers to interconnect the cells and blocks. 
    - Global Routing - Routing guides are generated
    - Detailed Routing - Uses routing guides to implement actual wiring
@@ -36,23 +36,27 @@ Consider an Arduino board. The design of such microcontroller is dealt in Embedd
    - Timing verifications - Static Timing Analysis (STA)
    
  ### About Openlane
-  Openlane is a open source flow for a true open source tape-out experience. It is a culmination of various open source EDA tools. It's main goal is to produce a clean GDSII without human intervention. Openlane is tuned for SkyWater 130nm open pdk. Openlane ASIC flow :
+  Openlane is an open source flow for a true open source tape-out experience. It is a culmination of various open source EDA tools. It's main goal is to produce a clean GDSII without human intervention. Openlane is tuned for SkyWater 130nm open pdk.
+  
+  Openlane ASIC flow :
  - __RTL Synthesis__ - Implemented using _Yosys_ and _abc_
- - __Static timing analysis__ - Implpemented using _OpenSTA_
- - __Design for Testability (DFT)__ - IMplemented using _Fault_
- - __Physical implementation__ - Implmented using _OpenROAD_. Involves Place and Route(PnR) and Clock Tree Synthesis (CTS)
- - __Logical Equivalence Checking (LEC)__ - Implmented using _Yosys_. To ensure functional equivalence after netlist is modified during optimizations
+ - __Static timing analysis__ - Implemented using _OpenSTA_
+ - __Design for Testability (DFT)__ - Implemented using _Fault_
+ - __Physical implementation__ - Implemented using _OpenROAD_. Involves Place and Route(PnR) and Clock Tree Synthesis (CTS)
+ - __Logical Equivalence Checking (LEC)__ - Implemented using _Yosys_. To ensure functional equivalence after netlist is modified during optimizations
  - __RC Extraction__ 
  
  ### LAB 1 : Getting started with OpenLane
- Openlane comes with many built in designs. In this project, we will be exploring the flow with one such design,__picorv32a__. It is a CPU core and we will see how all the steps in RTL to GDSII flow are implemented in Openlane. And a few directory names mentioned in this project might be user specific, but most of them will be same. For example, _openLANE_flow_ directory mentioned in this project which is named just _openlane_ typically. 
+ Openlane comes with many built in designs. In this project, we will be exploring the flow with one such design, __picorv32a__. It is a CPU core and we will see how all the steps in RTL to GDSII flow are implemented in Openlane by using this chip. And a few directory names mentioned in this project might be user specific, but most of them will be same. For example, _openLANE_flow_ directory mentioned in this project is named just _openlane_ typically. 
+ 
+ 
  To start openlane, we open the shell in _openLANE_flow_(_openlane_) directory and run the command,
  ```
  ./flow.tcl -interactive
  ```
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 191101.png" width="70%">
  
- Now we import with openlane packages specifying its version,
+ Now we import openlane packages specifying its version,
 ```
 package require openlane 0.9
 ```
@@ -62,13 +66,13 @@ Next we specify the design that we intend to work on, which is _picorv32a_ in ou
 ```
 prep -design picorv32a
 ```
-<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="60%">
+<img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 193753.png" width="70%">
 
-This command merges two lefs and places in a new folder which is named as date and time while running the command, inside directory designs/picorv32a/runs/.
+This command merges two lefs and places it in a new folder which is named as date and time while running the command, inside directory designs/picorv32a/runs/.
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot 2021-01-22 200120.png" width="60%">
 
-#### __Synthesis__
+#### __Running synthesis__
 ```
 run_synthesis
 ```
@@ -84,25 +88,34 @@ Here we define a term _Flop Ratio_. Flop ratio is the ratio of total number of f
 First step in the floorplan is to define the dimensions of core and die, which in turn contraints the  dimensions of the SoC and the IPs contained in it. We define two terms in this regard - _Utilization Factor_ and _Aspect Ratio_.
 
 __Utilization Factor__-
-Utilization factor gives represents the percentage of the core area occupied by the netlist(with cells abutting each other and excluding the wires). So it is defined as the ratio of Area ocupied by the netlist and Total area of the core. 
+Utilization factor represents the percentage of the core area occupied by the netlist(with cells abutting each other and excluding the wires). So it is defined as the ratio of Area ocupied by the netlist and Total area of the core. 
                                          
 __Aspect Ratio__-
 Aspect ratio is the ratio of Height and Width of the core and tells if the core is rectungular or square.
 
 #### 2. Defining locations of pre-placed cells
-In the netlist, there will be some portions which repeat many times at different locations. So, we divide the entire netlist into certain blocks so that the repeating blocks can be duplicated easily as and when required. These blocks are placed on the floor before runnning the autommated PnR, and hence the name _pre-placed cells_.Automated tools cannot re locate these pre-placed cells. 
+In the netlist, there will be some portions which repeat many times at different locations. So, we divide the entire netlist into certain blocks so that the repeating blocks can be duplicated easily as and when required. These blocks are placed on the floor before runnning the autommated PnR, and hence the name _pre-placed cells_. Automated tools cannot re-locate these pre-placed cells. 
 
 #### 3. Surronding pre-placed cells with de-coupling capacitors
+When the power supply wire is long, the parasitics in the wire result in a voltage drop. Thus, all the blocks do not get the necessary power required by them. So, we de-couple the blocks using capacitors which can feed the necessary voltage to the blocks. This also reduces _cross talk_.
 
+#### 4. Power Planning 
+All the blocks cannot be provided with de-coupling capacitors as it would increase the chip area. And also, having a single supply and ground line for all the blocks might result in _ground bounce_ and _voltage droop_ effects. To tackle this, we add multiple supply lines. 
 
-### LAB
+#### 5. Pin Placement
+All the input ports are placed on one side and the output ports on the other side. Ordering might depend on block placement. 
+
+#### 6. Logical cell placement blockage
+Area for the pins are reserved, thus blocking that area for automated PnR tools. 
+
+### LAB 2 : Floorplanning, placement and magic
  #### __Few useful flags and commands__
 - To create runs folder with custom name
 ```shell
 prep -design picorv32 -tag trial_run1
 ```
   This creates a new runs folder with the name _trial_run1_
-- To overwrite default configurations in config.tcl
+- To overwrite previous run
 ```shell
 prep -design picorv32 -tag trial_run1 -overwrite
 ```
@@ -128,6 +141,7 @@ After running the above command, a new file named _piorv32a.floorplan.def_ will 
 The DIEAREA variable contains the (x1 y1)(x2 y2) co ordinates where x1,y1 is the lower left vertex and x2,y2 is the upper right vertex of the die. This information can be used to calculate the area of the die. 
 
  #### __Opening floorplan in MAGIC__
+ To view the floorplan created, we need to open it in _magic_ as follows,
 ```
 magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
@@ -166,9 +180,18 @@ magic -T /home/mayurta/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/Images/Screenshot%202021-01-23%20193030.png" width="60%">
 
 ## DAY 3 : Designing library cell using MAGIC layout and ngspice charactereization
+### 16 mask CMOS process
+A CMOS inverter is fabricated on actual silicon wafer using 16 masks. The process contains of various steps as follows :
+- Selecting a substrate
+- Creating active regions for transistors
+- Formation of n-well and p-well
+- Formation of gates
+- Lightly doped drain (LDD) formation
+- Source and drain formation
+- Formation of contacts and interconnects
+- Higher metal level formation
 
-### LAB
-OBJECTIVE : To perform simulatation and characterization of an inverter and plug it into the _picorv32_.
+### LAB 3 : Simulation and characterization of an inverter and plugging it into picorv32
 #### __Setting up the inverter files__
 Instead of designing the inverter from scratch, we git clone the folder containing a pre-designed inverter and work with it. The link to be cloned from was already given in the workshop. We first go to the openLANE_flow(openlane) directory and clone the inverter there as follows, 
 ```
@@ -204,7 +227,7 @@ Then we edit the _.spice_ file to include model files, define power supply nodes
 
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D3_images/Screenshot2021-01-24194614.png" width="60%">
 
-#### __Runing the simulations in Ngspice__
+#### __Runing the simulation in ngspice__
 Next, we run the simlulation by typing, 
 ```
 ngspice sky130_inv.spice
@@ -221,7 +244,7 @@ This plots output(node y) vs time and also the input(node a)..
 Timing characterization of the cell can be performed in ngspice by calculating delays and transition times. 
 
 ## DAY 4 : Pre-layout timing analysis and importance of good clock tree
-### LAB
+### LAB 4 : Clock tree synthesis and tritonCTS
 MAGIC contains all the detailed information about a cell. For PnR, such detailed information is not necessary. So, we use a different file format __LEF__ for placement and routing stage. LEF( Library Exchange Format) contains only the abstract information about the cell and hence is also used for protecting the IPs. So, before plugging our Inverter into the layout of _picorv32_, we need to convert the _.mag_ file of inverter into _.lef_. 
 
 For routing, certain guidelines are to be strictly followed. Two of such guidelines relevant in our case are,
@@ -370,6 +393,10 @@ To check which stage was last executed in Openlane, we can use the following com
 echo $::env(CURRENT_DEF)
 ```
 The command basically tells us which .def file was updated last time which also corresponds to the previously executed stage.
+
+
+__NOTE__ : Power-ground distribution is generally done durimg floorplan. But in Openlane, is is done after placement. 
+
 
 Before routing, we first need to generate the power distribution network.
 ```
