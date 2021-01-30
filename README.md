@@ -1,5 +1,7 @@
 # VSD-IAT Workshop on Advanced Physical Design using OPENLANE/SKY130
 
+## CONTENTS
+- [Day 1](## DAY 2 : Floorplanning and introduction to Library Cells)
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
 
@@ -386,7 +388,7 @@ report_checks -path_delay min_max -format full_clock_expanded -digits 4
 
 ## DAY 5 : Final steps for RTL2GDS using tritonRoute and openSTA
 
-### LAB - Introduction to routing using tritonRoute 
+### LAB 5 : Introduction to routing using tritonRoute 
 #### __Routing__
 To check which stage was last executed in Openlane, we can use the following command,
 ```
