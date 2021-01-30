@@ -1,8 +1,8 @@
 # VSD-IAT Workshop on Advanced Physical Design using OPENLANE/SKY130
 
 ## CONTENTS
-- [DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK ](##DAY-1-:-Inception-of-Opensource-EDA,-OpenLANE-and-SKY130-PDK)
-## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
+- [DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK ](#DAY-1-:-Inception-of-Opensource-EDA,-OpenLANE-and-SKY130-PDK)
+## #DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
 
 Consider an Arduino board. The design of such a microcontroller is dealt in Embedded Systems desing. There is an important block in this microcontroller, which is the microprocessor. The design of such microprocessors or other such chips is done in the VLSI industry. It involves desinging the chip from an abstract logical point of view down to fabricating the chip on a real semiconductor wafer. This flow is generally known as RTL to GDSII flow. And that is what we will explore in this project. 
