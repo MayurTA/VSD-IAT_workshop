@@ -1,7 +1,7 @@
 # VSD-IAT Workshop on Advanced Physical Design using OPENLANE/SKY130
 
 ## CONTENTS
-- [Day 1](## DAY 2 : Floorplanning and introduction to Library Cells)
+- [DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK ](#DAY-1-:-Inception-of-Opensource-EDA,-OpenLANE-and-SKY130-PDK)
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
 
