@@ -2,11 +2,11 @@
 
 ## CONTENTS
 - [DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK ](#day-1--inception-of-opensource-eda-openlane-and-sky130-pdk)
- - [Few common VLSI terms}(#few-common-vlsi-terms)
- - [RTL to GDSII flow](#rtl-to-gdsii-flow)
- - [About Openlane](#about-openlane)
- - [LAB 1 : Getting started with OpenLane](#lab-1--getting-started-with-openlane)
-  - [Running synthesis](#running-synthesis)
+  - [Few common VLSI terms}(#few-common-vlsi-terms)
+  - [RTL to GDSII flow](#rtl-to-gdsii-flow)
+  - [About Openlane](#about-openlane)
+  - [LAB 1 : Getting started with OpenLane](#lab-1--getting-started-with-openlane)
+    - [Running synthesis](#running-synthesis)
 - [DAY 2 : Floorplanning and introduction to Library Cells](#day-2--floorplanning-and-introduction-to-library-cells)
   
   
