@@ -32,6 +32,7 @@
   - [LAB 5 : Introduction to routing using tritonRoute](#lab-5--introduction-to-routing-using-tritonroute)
     - [Routing](#routing)
     - [SPEF extraction](#spef-extraction)
+- [ACKNOWLEDGEMENTS](#acknowledgements)
   
 ## DAY 1 : Inception of Opensource EDA, OpenLANE and SKY130 PDK 
  <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D1_images/Screenshot_2021-01-27_214716.png" width="40%">
@@ -461,3 +462,8 @@ After extraction, a new spef file gets created in the same directory as of def f
 <img src="https://github.com/MayurTA/VSD-IAT_workshop/blob/main/D5_images/Screenshot_2021-01-26_194118.png"  width = "60%">
 
 The picorv32a.synthesis_diodes.v gets created just before routing, when antenna diode insertion takes place. To perform STA again, we need to use the last file. 
+
+## ACKNOWLEDGEMENTS
+- [Nickson Jose](https://github.com/nickson-jose)
+- [Kunal Ghosh](https://github.com/kunalg123)
+
