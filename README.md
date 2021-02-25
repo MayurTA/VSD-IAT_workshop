@@ -18,7 +18,7 @@
 - [DAY 3 : Designing library cell using MAGIC layout and ngspice charactereization](#day-3--designing-library-cell-using-magic-layout-and-ngspice-charactereization)
   - [16 mask CMOS process](#16-mask-cmos-process)
   - [LAB 3 : Simulation and characterization of an inverter and plugging it into picorv32](#lab-3--simulation-and-characterization-of-an-inverter-and-plugging-it-into-picorv32)
-    - [#lab-3--simulation-and-characterization-of-an-inverter-and-plugging-it-into-picorv32](#setting-up-the-inverter-files)
+    - [Setting up the inverter files](##lab-3--simulation-and-characterization-of-an-inverter-and-plugging-it-into-picorv32)
     - [Opening the inverter in MAGIC](#opening-the-inverter-in-magic)
     - [Runing the simulation in ngspice](#runing-the-simulation-in-ngspice)
 - [DAY 4 : Pre-layout timing analysis and importance of good clock tree](#day-4--pre-layout-timing-analysis-and-importance-of-good-clock-tree)
